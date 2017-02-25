@@ -1,6 +1,7 @@
 var React = require('react');
 var _ = require('underscore');
 var mathUtils = require('../libs/mathUtils');
+var Spinner = require('react-spinkit');
 
 /**
  * Constants
@@ -30,8 +31,20 @@ var WeatherSummary = React.createClass({
             {this._buildSummaryTable()}
           </tbody>
         </table>
+        {this._spinner()}
       </div>
     )
+  },
+
+  _spinner: function() {
+    if(_.isEmpty(this.props.data)){
+      return (
+        <div>
+          <Spinner spinnerName='wordpress' noFadeIn />
+          Fetching weather data...............
+        </div>
+      );
+    }
   },
 
   _buildSummaryTableHeaders: function() {
