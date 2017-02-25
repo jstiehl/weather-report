@@ -15,6 +15,7 @@
 
 .App-intro {
   font-size: large;
+  padding-bottom: 120px;
 }
 
 table, th, td {
@@ -47,6 +48,7 @@ tr:hover {
 }
 
 footer {
+  height: 100px;
   margin-left: auto;
   margin-right: auto;
   position: fixed;
