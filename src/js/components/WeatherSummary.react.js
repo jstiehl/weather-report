@@ -39,7 +39,7 @@ var WeatherSummary = React.createClass({
   _spinner: function() {
     if(_.isEmpty(this.props.data)){
       return (
-        <div>
+        <div className="_spinner">
           <Spinner spinnerName='wordpress' noFadeIn />
           Fetching weather data...............
         </div>
