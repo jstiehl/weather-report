@@ -28,18 +28,24 @@ var utils = {
   },
 
   highTriggers: function(data, limit) {
-    var aboveLimit = _.reject(data, function(point) {
+    var crossAboveLimit = _.reject(data, function(point, index) {
+      if(index !== 0){
+        return data[index-1] < limit && point <= limit;
+      }
       return point <= limit;
     });
-    var triggers = aboveLimit.length;
+    var triggers = crossAboveLimit.length;
     return triggers;
   },
 
   lowTriggers: function(data, limit) {
-    var belowLimit = _.reject(data, function(point) {
+    var crossBelowLimit = _.reject(data, function(point, index) {
+      if(index !== 0){
+        return data[index-1] > limit && point >= limit;
+      }
       return point >= limit;
     });
-    var triggers = belowLimit.length;
+    var triggers = crossBelowLimit.length;
     return triggers;
   }
 }

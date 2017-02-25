@@ -21,6 +21,7 @@ var WeatherSummary = React.createClass({
     return (
       <div>
         <h1>{this.props.month}</h1>
+        <p>AC trigger limit is {HIGH_LIMIT} and Heater trigger limit is {LOW_LIMIT}</p>
         <table className="summary-table">
           <thead>
             <tr>{this._buildSummaryTableHeaders()}</tr>
