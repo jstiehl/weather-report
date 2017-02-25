@@ -2,10 +2,19 @@ var React = require('react');
 var _ = require('underscore');
 var mathUtils = require('../libs/mathUtils');
 
+/**
+ * Constants
+ */ 
 var TABLE_HEADERS = ["Date", "Average Temp (F)", "Max Temp", "Min Temp", "AC Triggers", "Heater Triggers"];
-var HIGH_LIMIT = 69;
-var LOW_LIMIT = 68;
+var HIGH_LIMIT = 75;
+var LOW_LIMIT = 62;
+/** ==================================================================================================== */
 
+/**
+ * WeatherSummary component receives props with month and weather data
+ * It calculates some statistics based on the daily data and tabulates the results
+ * TODO figure out how to make a box plot of daily data for the month. d3?
+ */
 var WeatherSummary = React.createClass({
 
   render: function() {

@@ -3,67 +3,20 @@ var WeatherSummary = require('./WeatherSummary.react');
 var WeatherSummaryActionCreators = require('../actions/WeatherSummaryActionCreators');
 var WeatherSummaryStore = require('../stores/WeatherSummaryStore');
 
+/**
+ * WeatherSummaryContainer is responsible for fetching weather data from store or initiating action to fetch data
+ * data is passed to WeatherSummary component for rendering of data
+ */
 var WeatherSummaryContainer = React.createClass({
   getInitialState: function() {
     return {
-      data: {
-        "Day One": [{
-          time: 1,
-          temperature: 67
-        }, {
-          time: 2,
-          temperature: 67
-        }, {
-          time: 3,
-          temperature: 67
-        }],
-        "Day Two": [{
-          time: 1,
-          temperature: 67
-        }, {
-          time: 2,
-          temperature: 67
-        }, {
-          time: 3,
-          temperature: 67
-        }],
-        "Day Three": [{
-          time: 1,
-          temperature: 67
-        }, {
-          time: 2,
-          temperature: 67
-        }, {
-          time: 3,
-          temperature: 67
-        }],
-        "Day Six": [{
-          time: 1,
-          temperature: 67
-        }, {
-          time: 2,
-          temperature: 67
-        }, {
-          time: 3,
-          temperature: 67
-        }],
-        "Day Five": [{
-          time: 1,
-          temperature: 67
-        }, {
-          time: 2,
-          temperature: 67
-        }, {
-          time: 3,
-          temperature: 67
-        }]
-      },
+      data: {},
       month: 'June'
     }
   },
 
   componentWillMount: function() {
-    //this._getMonthlyWeatherData();
+    this._getMonthlyWeatherData();
   },
 
   componentDidMount: function() {
@@ -84,7 +37,7 @@ var WeatherSummaryContainer = React.createClass({
 
   _getMonthlyWeatherData: function() {
     var month = this.state.month.toLowerCase();
-    var monthlyData = WeatherSummaryStore.getMonthlyData[month];
+    var monthlyData = WeatherSummaryStore.getMonthlyData(month);
     if(!monthlyData) {
       WeatherSummaryActionCreators.fetchMonthlyWeatherData(month);
     }

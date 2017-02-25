@@ -8,7 +8,7 @@ var utils = {
   average: function(dataArray) {
     var total = _.reduce(dataArray, function(sum, num) { return sum + num; }, 0);
     var average = length === 1 ? dataArray[0] : total/(dataArray.length);
-    return average;
+    return Math.round(average);
   },
 
   /**
@@ -16,7 +16,7 @@ var utils = {
    * @return {Number} max the max of the numbers in dataArray
    */
   max: function(data) {
-    return _.max(data);
+    return Math.round(_.max(data));
   },
 
   /**
@@ -24,7 +24,7 @@ var utils = {
    * @return {Number} min the min of the numbers in dataArray
    */
   min: function(data) {
-    return _.min(data);
+    return Math.round(_.min(data));
   },
 
   highTriggers: function(data, limit) {

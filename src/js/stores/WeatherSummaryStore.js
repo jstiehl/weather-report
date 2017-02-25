@@ -24,20 +24,20 @@ var WeatherSummaryStore = assign({}, EventEmitter.prototype, {
     _.extend(monthlyData, data);
   },
 
-  getMonthlyData: function() {
-    return monthlyData;
+  getMonthlyData: function(month) {
+    return monthlyData[month];
   }
 });
 
 WeatherSummaryStore.dispatchToken = AppDispatcher.register(function(payload){
   switch (payload.type) {
     case 'monthly_data_received':
+    console.log(payload.data);
       WeatherSummaryStore._monthlyDataReceived(payload.data);
       WeatherSummaryStore.emitChange();
       break;
     default:
       break;
-
   }
 });
 

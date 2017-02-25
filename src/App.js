@@ -3,6 +3,7 @@ var WeatherSummaryContainer = require('./js/components/WeatherSummaryContainer.r
 
 import './App.css';
 import logo from './rain-cloud.svg';
+import darksky from './poweredby-oneline.png'
 
 var App = React.createClass ({
   render: function() {
@@ -15,6 +16,9 @@ var App = React.createClass ({
         <div className="App-intro">
           <WeatherSummaryContainer />
         </div>
+        <footer>
+          <a href="https://darksky.net/poweredby/" target="_blank"><img src={darksky} alt="Powered By Dark Sky" /></a>
+        </footer>
       </div>
     );
   }
