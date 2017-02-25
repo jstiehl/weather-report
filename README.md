@@ -10,5 +10,5 @@ To run the app
 
 1. Clone this repo locally.
 2. Navigate to the root directory of the project on your local machine.
-3. Run 'npm install' to install dependencies
-4. Assuming that weather-api server is running (instructions for that setup are provided in the [weather-api](https://github.com/jstiehl/weather-api) repo), you can run the app locally by running the 'npm start' command in the root directory of this project.
+3. Run `npm install` to install dependencies
+4. Assuming that weather-api server is running (instructions for that setup are provided in the [weather-api](https://github.com/jstiehl/weather-api) repo), you can run the app locally by running the `npm start` command in the root directory of this project.
