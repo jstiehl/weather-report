@@ -1,5 +1,4 @@
 var request = require('superagent');
-var AppDispatcher = require('../../AppDispatcher');
 var config = require('../../config');
 var API_URL = config.API_URL;
 
@@ -9,20 +8,24 @@ var WeatherSummaryActionCreator = {
    * @param  {String} month is the month of interest
    * @return {Action} dispatches with monthyl_data_received action typ and monthly weather data
    */
+
   fetchMonthlyWeatherData: function(month) {
-    request.get(API_URL + 'weather/' + month)
+    //redux-thunk middleware takes care of passing the dispatch arg
+    return dispatch => {
+      return request.get(API_URL + 'weather/' + month)
       .end(function(err, res){
-        var data = res.body.data;
+        var data = res.body.data[month];
         if(err) {
           //need to add error handling
           console.log(err);
         }
         var action = {
           type: 'monthly_data_received',
-          data: data
+          payload: {data: data}
         }
-        AppDispatcher.dispatch(action);
+        dispatch(action);
       });
+    }
   }
 };
 
