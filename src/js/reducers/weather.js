@@ -1,7 +1,7 @@
 //Initial state will define our data model
 const initialState = {
     data: {},
-    month: 'June'
+    month: 'December'
 };
 
 const weather = (state = initialState, action) => {
@@ -9,6 +9,8 @@ const weather = (state = initialState, action) => {
         case 'monthly_data_received':
             state = Object.assign({}, state, action.payload);
             break;
+        default:
+            state = initialState;
     }
     return state;
 };
